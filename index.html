@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+e<!DOCTYPE html>
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="https://use.typekit.net/cyx0hgt.css"> 
@@ -736,7 +736,7 @@
 			
 			
             <div class="nav-buttons">
-                <button class="btn" onclick="showPage(event, 'about')"><span>About Me</span></button>
+                <button class="btn" onclick="showPage(, 'about')"><span>About Me</span></button>
                 <button class="btn" onclick="showPage(event, 'work')"><span>My Work</span></button>
                 <button class="btn" onclick="showPage(event, 'resume')"><span>Resume</span></button>
                 <button class="btn" onclick="showPage(event, 'contact')"><span>Contact</span></button>
@@ -1017,29 +1017,38 @@
                 isPlaying = true;
             }
         }
-
-        volumeSlider.addEventListener('input', (e) => {
+volumeSlider.addEventListener('input', (e) => {
             musicPlayer.volume = e.target.value / 100;
         });
-
         musicPlayer.addEventListener('ended', () => {
             playBtn.innerHTML = '▶';
             isPlaying = false;
         });
-
         musicPlayer.addEventListener('play', () => {
             playBtn.innerHTML = '⏸';
             isPlaying = true;
         });
-
         musicPlayer.addEventListener('pause', () => {
             playBtn.innerHTML = '▶';
             isPlaying = false;
-			function showPage(event, pageId) {
-			}
-}
         });
-    </script>
 
+        function showPage(event, pageId) {
+            event.preventDefault();
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            const clickedLink = event.target.closest('.nav-link');
+            if (clickedLink) {
+                clickedLink.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
