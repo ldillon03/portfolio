@@ -704,9 +704,7 @@
     </footer>
 
     <script>
-        const nav = document.querySelector('nav');
-
-       function showPage(event, pageId) {
+     function showPage(event, pageId) {
     event.preventDefault();
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => page.classList.remove('active'));
@@ -719,58 +717,55 @@
     navLinks.forEach(link => link.classList.remove('active'));
     const clickedLink = event.target.closest('.nav-link');
     if (clickedLink) clickedLink.classList.add('active');
-    // Show/hide nav
-    const nav = document.querySelector('nav');
-    nav.style.display = pageId === 'home' ? 'none' : 'block';
+    document.querySelector('nav').style.display = pageId === 'home' ? 'none' : 'block';
 }
-        }
 
-        function openFullscreen(event) {
-            const item = event.currentTarget;
-            const videoUrl = item.getAttribute('data-video');
-            const imageUrl = item.querySelector('img').src;
-            const overlay = document.createElement('div');
-            overlay.style.cssText = `position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);z-index:10000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(5px);`;
-            const content = document.createElement('div');
-            content.style.cssText = `position:relative;max-width:90vw;max-height:90vh;`;
-            const closeBtn = document.createElement('button');
-            closeBtn.innerHTML = '✕';
-            closeBtn.style.cssText = `position:absolute;top:-40px;right:0;background:rgba(255,255,255,0.2);border:2px solid white;color:white;width:40px;height:40px;border-radius:50%;font-size:1.5rem;cursor:pointer;`;
-            closeBtn.onmouseover = () => closeBtn.style.background = 'rgba(255,255,255,0.4)';
-            closeBtn.onmouseout = () => closeBtn.style.background = 'rgba(255,255,255,0.2)';
-            closeBtn.onclick = () => overlay.remove();
-            if (videoUrl) {
-                const video = document.createElement('video');
-                video.src = videoUrl; video.controls = true; video.autoplay = true;
-                video.style.cssText = 'max-width:100%;max-height:85vh;border-radius:10px;';
-                content.appendChild(video);
-            } else {
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                img.style.cssText = 'max-width:100%;max-height:85vh;border-radius:10px;';
-                content.appendChild(img);
-            }
-            content.appendChild(closeBtn);
-            overlay.appendChild(content);
-            document.body.appendChild(overlay);
-            overlay.onclick = e => { if (e.target === overlay) overlay.remove(); };
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') overlay.remove(); });
-        }
+function openFullscreen(event) {
+    const item = event.currentTarget;
+    const videoUrl = item.getAttribute('data-video');
+    const imageUrl = item.querySelector('img').src;
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);z-index:10000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(5px);`;
+    const content = document.createElement('div');
+    content.style.cssText = `position:relative;max-width:90vw;max-height:90vh;`;
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '✕';
+    closeBtn.style.cssText = `position:absolute;top:-40px;right:0;background:rgba(255,255,255,0.2);border:2px solid white;color:white;width:40px;height:40px;border-radius:50%;font-size:1.5rem;cursor:pointer;`;
+    closeBtn.onmouseover = () => closeBtn.style.background = 'rgba(255,255,255,0.4)';
+    closeBtn.onmouseout = () => closeBtn.style.background = 'rgba(255,255,255,0.2)';
+    closeBtn.onclick = () => overlay.remove();
+    if (videoUrl) {
+        const video = document.createElement('video');
+        video.src = videoUrl; video.controls = true; video.autoplay = true;
+        video.style.cssText = 'max-width:100%;max-height:85vh;border-radius:10px;';
+        content.appendChild(video);
+    } else {
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.style.cssText = 'max-width:100%;max-height:85vh;border-radius:10px;';
+        content.appendChild(img);
+    }
+    content.appendChild(closeBtn);
+    overlay.appendChild(content);
+    document.body.appendChild(overlay);
+    overlay.onclick = e => { if (e.target === overlay) overlay.remove(); };
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') overlay.remove(); });
+}
 
-        const musicPlayer = document.getElementById('musicPlayer');
-        const volumeSlider = document.getElementById('volumeSlider');
-        const playBtn = document.querySelector('.music-btn');
-        let isPlaying = false;
+const musicPlayer = document.getElementById('musicPlayer');
+const volumeSlider = document.getElementById('volumeSlider');
+const playBtn = document.querySelector('.music-btn');
+let isPlaying = false;
 
-        function toggleMusic() {
-            if (isPlaying) { musicPlayer.pause(); playBtn.innerHTML = '▶'; isPlaying = false; }
-            else { musicPlayer.play(); playBtn.innerHTML = '⏸'; isPlaying = true; }
-        }
+function toggleMusic() {
+    if (isPlaying) { musicPlayer.pause(); playBtn.innerHTML = '▶'; isPlaying = false; }
+    else { musicPlayer.play(); playBtn.innerHTML = '⏸'; isPlaying = true; }
+}
 
-        volumeSlider.addEventListener('input', e => { musicPlayer.volume = e.target.value / 100; });
-        musicPlayer.addEventListener('ended', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
-        musicPlayer.addEventListener('play', () => { playBtn.innerHTML = '⏸'; isPlaying = true; });
-        musicPlayer.addEventListener('pause', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
+volumeSlider.addEventListener('input', e => { musicPlayer.volume = e.target.value / 100; });
+musicPlayer.addEventListener('ended', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
+musicPlayer.addEventListener('play', () => { playBtn.innerHTML = '⏸'; isPlaying = true; });
+musicPlayer.addEventListener('pause', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
     </script>
 </body>
 </html>
