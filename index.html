@@ -159,11 +159,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3rem;
+            gap: 1rem;
         }
 
         /*
-           WELCOME TEXT — animates in on load
+           
         */
         .home-content h1 {
             font-family: "fayte-pixel-hard", sans-serif;
@@ -175,14 +175,14 @@
             margin-top: -2;
             color: #FFFF49;
             text-shadow: 15px 13px 8px rgba(1, 2, 9, .2);
-            /* Animate in */
-            animation: welcomeFadeIn 1.2s ease 0.1s both;
+            
+            animation: welcomeFadeIn 1.2s ease 0.2s both;
         }
 
         @keyframes welcomeFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-20px) scale(0.97);
+                transform: translateY(-30px) scale(0.57);
             }
             to {
                 opacity: 1;
@@ -195,7 +195,7 @@
         }
 
         /* 
-           HOME PAGE MENU - Buttons below welcome text
+           
         */
         .nav-buttons {
             padding-top: 0rem;
@@ -232,10 +232,10 @@
             color: white;
             border: none;
             border-radius: 0;
-            /* TODO: Change book button font when you decide — currently argent-pixel-cf */
+            
             font-family: "argent-pixel-cf", serif;
             font-weight: 600;
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -244,9 +244,9 @@
             background-position: center;
             position: relative;
             overflow: hidden;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             width: 59px;
-            height: 210px;
+            height: 240px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
