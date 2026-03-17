@@ -706,15 +706,23 @@
     <script>
         const nav = document.querySelector('nav');
 
-        function showPage(event, pageId) {
-            event.preventDefault();
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            const selectedPage = document.getElementById(pageId);
-            if (selectedPage) { selectedPage.classList.add('active'); window.scrollTo(0, 0); }
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            const clickedLink = event.target.closest('.nav-link');
-            if (clickedLink) clickedLink.classList.add('active');
-            nav.style.display = pageId === 'home' ? 'none' : 'block';
+       function showPage(event, pageId) {
+    event.preventDefault();
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+    const selectedPage = document.getElementById(pageId);
+    if (selectedPage) {
+        selectedPage.classList.add('active');
+        window.scrollTo(0, 0);
+    }
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => link.classList.remove('active'));
+    const clickedLink = event.target.closest('.nav-link');
+    if (clickedLink) clickedLink.classList.add('active');
+    // Show/hide nav
+    const nav = document.querySelector('nav');
+    nav.style.display = pageId === 'home' ? 'none' : 'block';
+}
         }
 
         function openFullscreen(event) {
