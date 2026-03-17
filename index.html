@@ -7,11 +7,7 @@
     <title> Portfolio </title>
     <link href="https://fonts.googleapis.com/css2?family=Trailer+Park+Numerals&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="7" y="22" font-size="24" fill="white" stroke="rgba(200,200,255,0.6)" stroke-width="1">✦</text><circle cx="10" cy="8" r="1.5" fill="rgba(255,255,255,0.8)"/><circle cx="22" cy="12" r="1" fill="rgba(255,255,255,0.6)"/><circle cx="18" cy="26" r="1" fill="rgba(255,255,255,0.7)"/></svg>') 10 5, auto;
@@ -43,11 +39,9 @@
             overflow-x: hidden;
         }
 
-        /* 
-         
-        */
+        /* NAVIGATION — hidden by default, JS shows it on non-home pages */
         nav {
-            background: rgba(0, 86, 940, 22);
+            background: rgba(0, 0, 0, 0.15);
             backdrop-filter: blur(0px);
             border-bottom: 2px solid var(--border-color);
             padding: 1.2rem 2rem;
@@ -55,6 +49,7 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 15px var(--shadow-color);
+            display: none;
         }
 
         nav ul {
@@ -73,7 +68,6 @@
             padding: 0.5rem 1rem;
             border-radius: 20px;
             transition: all 0.3s ease;
-            /* Nav bar font — currently argent-pixel-cf to match body text */
             font-family: "argent-pixel-cf", serif;
         }
 
@@ -97,25 +91,17 @@
             padding: 3rem 2rem;
         }
 
-        .page.active {
-            display: block;
-        }
+        .page.active { display: block; }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-           HOME 
-        */
+        /* HOME */
         #home {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -128,28 +114,22 @@
         #home::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background-image: url('https://i.etsystatic.com/5651657/r/il/0407a7/2811476301/il_1080xN.2811476301_spxf.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            opacity: 1;
             z-index: 1;
-            filter: blur(0px);
         }
 
         #home::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 50%, rgba(0, 0, 0, 0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(0, 0, 0, 0.2) 0%, transparent 50%);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(0,0,0,0.2) 0%, transparent 50%);
             z-index: 2;
         }
 
@@ -159,120 +139,90 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 7rem;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
         }
 
-        /*
-           
-        */
+        /* WELCOME TEXT */
         .home-content h1 {
             font-family: "fayte-pixel-hard", sans-serif;
             font-weight: 100;
-            font-style: normal;
             font-size: clamp(3rem, 12vw, 8rem);
             letter-spacing: .01px;
-            margin-bottom: 0;
-            margin-top: -2;
             color: #FFFF49;
             text-shadow: 15px 13px 8px rgba(1, 2, 9, .2);
-            
-            animation: welcomeFadeIn 1.2s ease 0.2s both;
+            animation: welcomeFadeIn 1.2s ease 0.1s both;
+            margin-bottom: 6vh;
         }
 
         @keyframes welcomeFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px) scale(0.57);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(-20px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        .home-content p {
-            display: none; 
-        }
+        .home-content p { display: none; }
 
-        /* 
-           
-        */
+        /* SHELF + BOOKS — centered, books sit on shelf */
         .nav-buttons {
-            padding-top: 0rem;
             display: flex;
-            justify-content: flex-end;
-            padding-left: 3rem;
+            justify-content: center;
+            align-items: flex-end;
             gap: 0;
-            flex-wrap: wrap;
-            margin-top: -1rem;
             background-image: url('shelf.png');
-            background-size: 100%;
+            background-size: 100% auto;
             background-repeat: no-repeat;
-            background-position: center;
+            background-position: bottom center;
             position: relative;
             z-index: 4;
-            min-height: 300px;
-            min-width: 490px;
+            width: 520px;
+            height: 290px;
+            padding: 0 1rem;
         }
 
-        .nav-buttons::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: none;
-            border-radius: 0 0 10px 10px;
-        }
+        /* No shadow line */
+        .nav-buttons::after { display: none; }
 
+        /* BOOK BUTTONS */
         .btn {
             padding: 0;
-            margin-top: -3.3rem;
             color: white;
             border: none;
             border-radius: 0;
-            
+            /* TODO: Change book button font when you decide — currently argent-pixel-cf */
             font-family: "argent-pixel-cf", serif;
             font-weight: 100;
             font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
             background-color: transparent;
             background-size: cover;
             background-position: center;
             position: relative;
             overflow: hidden;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            width: 59px;
-            height: 240px;
+            width: 62px;
+            height: 210px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            padding-bottom: 0px;
             z-index: 2;
+            /* Sit on shelf */
+            margin-bottom: 42px;
         }
 
         .btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%);
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.2) 100%);
             transition: all 0.3s ease;
             z-index: 1;
         }
 
         .btn:hover::before {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
         }
 
         .btn span {
@@ -283,63 +233,36 @@
             letter-spacing: 1px;
         }
 
-        .btn:nth-child(1) {
-            background-image: url('https://png.pngtree.com/png-vector/20220410/ourmid/pngtree-book-spine-vector-learn-space-vector-png-image_17085814.png');
-            transform: translateX(-36px) 
-        }
-        .btn:nth-child(1):hover {
-            transform: translateX(-36px) translateY(-5px);
-        }
-        .btn:nth-child(1) span {
-            /* TODO: Change book button font when you decide */
-            font-family: "argent-pixel-cf", serif;
-            font-size: 0.7rem;
-        }
+        .btn:nth-child(1) { background-image: url('https://png.pngtree.com/png-vector/20220410/ourmid/pngtree-book-spine-vector-learn-space-vector-png-image_17085814.png'); }
+        .btn:nth-child(1):hover { transform: translateY(-8px); }
+        .btn:nth-child(1) span { font-family: "argent-pixel-cf", serif; font-size: 0.7rem; }
 
-        .btn:nth-child(2) {
-            background-image: url('https://png.pngtree.com/png-vector/20220410/ourmid/pngtree-book-spine-vector-learn-space-vector-png-image_17085814.png');
-            transform: translateX(-37px) 
-        }
-        .btn:nth-child(2):hover {
-            transform: translateX(-37px) translateY(-5px);
-        }
-        .btn:nth-child(2) span {
-            /* TODO: Change book button font when you decide */
-            font-family: "argent-pixel-cf", serif;
-            font-size: 0.7rem;
-        }
+        .btn:nth-child(2) { background-image: url('https://png.pngtree.com/png-vector/20220410/ourmid/pngtree-book-spine-vector-learn-space-vector-png-image_17085814.png'); }
+        .btn:nth-child(2):hover { transform: translateY(-8px); }
+        .btn:nth-child(2) span { font-family: "argent-pixel-cf", serif; font-size: 0.7rem; }
 
-        .btn:nth-child(3) {
-            background-image: url('https://png.pngtree.com/png-vector/20220410/ourmid/pngtree-book-spine-vector-learn-space-vector-png-image_17085814.png');
-            transform: translateX(-38px) 
-        }
-        .btn:nth-child(3):hover {
-            transform: translateX(-38px) translateY(-5px);
-        }
-        .btn:nth-child(3) span {
-            /* TODO: Change book button font when you decide */
-            font-family: "argent-pixel-cf", serif;
-            font-size: 0.7rem;
-        }
+        .btn:nth-child(3) { background-image: url('https://png.pngtree.com/png-vector/20220410/ourmid/pngtree-book-spine-vector-learn-space-vector-png-image_17085814.png'); }
+        .btn:nth-child(3):hover { transform: translateY(-8px); }
+        .btn:nth-child(3) span { font-family: "argent-pixel-cf", serif; font-size: 0.7rem; }
 
         .btn:nth-child(4) {
             background-image: url('https://png.pngtree.com/png-vector/20220410/ourmid/pngtree-book-spine-vector-learn-space-vector-png-image_17085814.png');
-            transform: translateX(-16px) rotate(15deg);
+            transform: rotate(15deg) translateY(-8px);
+            margin-right: 6px;
         }
-        .btn:nth-child(4):hover {
-            transform: translateX(-16px) rotate(15deg) translateY(-5px);
-        }
-        .btn:nth-child(4) span {
-            /* TODO: Change book button font when you decide */
-            font-family: "argent-pixel-cf", serif;
-            font-size: 0.7rem;
+        .btn:nth-child(4):hover { transform: rotate(15deg) translateY(-16px); }
+        .btn:nth-child(4) span { font-family: "argent-pixel-cf", serif; font-size: 0.7rem; }
+
+        /* Bookend */
+        .bookend {
+            height: 155px;
+            margin-bottom: 42px;
+            margin-left: 4px;
+            object-fit: contain;
         }
 
-        /* 
-           OTHER PAGES 
-        */
+        /* OTHER PAGES */
         .page-header {
-            /* Page headings use fayte-pixel-hard — same as "Welcome to my portfolio" */
             font-family: "fayte-pixel-hard", sans-serif;
             font-size: clamp(2rem, 6vw, 3.5rem);
             margin-bottom: 2rem;
@@ -359,18 +282,12 @@
             box-shadow: 0 8px 32px var(--shadow-color);
         }
 
-        .-container {
-            display: grid;
-            gap: 2rem;
-        }
-
         .profile-section {
             text-align: center;
             padding-bottom: 2rem;
             border-bottom: 2px solid var(--border-color);
         }
 
-        /* About page photo row — 3 photos total */
         .photo-row {
             display: flex;
             justify-content: center;
@@ -380,18 +297,15 @@
         }
 
         .profile-image {
-            width: 150px;
-            height: 250px;
+            width: 150px; height: 250px;
             border-radius: 0%;
             border: 1px solid var(--accent-1);
             object-fit: cover;
             box-shadow: 0 8px 20px var(--shadow-color);
         }
 
-        /* Side photos are slightly smaller */
         .profile-image-side {
-            width: 120px;
-            height: 200px;
+            width: 120px; height: 200px;
             border-radius: 0%;
             border: 1px solid var(--accent-1);
             object-fit: cover;
@@ -403,12 +317,10 @@
             font-family: "argent-pixel-cf", serif;
             font-size: 1rem;
             line-height: 1.8;
-            /* Bio paragraph — changed from grey to white */
             color: #ffffff;
             margin-bottom: 1.5rem;
         }
 
-        /* Recs section headings use fayte-pixel-hard — same as welcome heading */
         .recs-heading {
             font-family: "fayte-pixel-hard", sans-serif;
             font-size: 1.6rem;
@@ -417,15 +329,8 @@
             text-align: left;
         }
 
-        .recs-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .recs-list li {
-            margin-bottom: 0.45rem;
-        }
+        .recs-list { list-style: none; padding: 0; margin: 0; }
+        .recs-list li { margin-bottom: 0.45rem; }
 
         .recs-list a {
             color: var(--primary-text);
@@ -435,9 +340,7 @@
             transition: color 0.2s ease;
         }
 
-        .recs-list a:hover {
-            color: var(--accent-1);
-        }
+        .recs-list a:hover { color: var(--accent-1); }
 
         .recs-list .rec-type {
             opacity: 0.55;
@@ -446,59 +349,8 @@
             font-family: "argent-pixel-cf", serif;
         }
 
-        /* Divider gif between recs lists */
-        .recs-divider {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .recs-divider img {
-            max-height: 40px;
-            opacity: 0.85;
-        }
-
-        .recommendations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .recommendation-card {
-            background: rgba(118, 229, 252, 0.08);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .recommendation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(118, 229, 252, 0.2);
-            background: rgba(118, 229, 252, 0.15);
-        }
-
-        .recommendation-image {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .recommendation-title {
-            font-weight: 600;
-            color: var(--primary-text);
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .recommendation-desc {
-            font-size: 0.85rem;
-            color: var(--secondary-text);
-            line-height: 1.5;
-        }
+        .recs-divider { text-align: center; margin: 2rem 0; }
+        .recs-divider img { max-height: 40px; opacity: 0.85; }
 
         .portfolio-grid {
             display: grid;
@@ -525,286 +377,147 @@
             box-shadow: 0 12px 35px rgba(118, 229, 252, 0.3);
         }
 
-        .portfolio-thumbnail {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.4s ease;
-        }
-
-        .portfolio-item:hover .portfolio-thumbnail {
-            transform: scale(1.08);
-            filter: brightness(1.1);
-        }
+        .portfolio-thumbnail { width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease; }
+        .portfolio-item:hover .portfolio-thumbnail { transform: scale(1.08); filter: brightness(1.1); }
 
         .portfolio-video-preview {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            display: none;
-            align-items: center;
-            justify-content: center;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: none; align-items: center; justify-content: center;
             z-index: 10;
         }
 
-        .portfolio-item:hover .portfolio-video-preview {
-            display: flex;
-        }
+        .portfolio-item:hover .portfolio-video-preview { display: flex; }
 
         .play-icon {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             background: var(--accent-1);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: white;
             box-shadow: 0 4px 15px rgba(118, 229, 252, 0.5);
         }
 
+        /* NOW PLAYING */
         .now-playing {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            left: auto;
+            bottom: 2rem; right: 2rem;
             background: transparent;
-            backdrop-filter: none;
-            border-top: none;
             padding: 0;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
             gap: 1rem;
             z-index: 999;
-            box-shadow: none;
-            animation: none;
             flex-wrap: nowrap;
         }
 
         .cd-container {
-            width: 60px;
-            height: 60px;
-            min-width: 60px;
-            border-radius: 50%;
-            overflow: hidden;
+            width: 60px; height: 60px; min-width: 60px;
+            border-radius: 50%; overflow: hidden;
             border: .5px solid var(--accent-1);
             box-shadow: 0 4px 15px rgba(118, 229, 252, 0.5);
         }
 
         .spinning-cd {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjk0YjY3cGhsMmZheWNoYW5pM2pwaWIzdjhobDJtY2RhdzQ5ZjVhcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fng5hqHLnfsD4jsoJc/giphy.gif');
-            background-size: cover;
-            background-position: center;
+            background-size: cover; background-position: center;
             animation: spin 60s linear infinite;
         }
 
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        .music-info {
-            flex: 0;
-            min-width: auto;
-        }
+        .music-info { flex: 0; min-width: auto; }
 
+        /* "Now Playing" — fayte-pixel-hard, same as welcome heading */
         .music-title {
-            font-family: "digibop", sans-serif;
-            font-weight: 400;
-            font-style: normal;
+            font-family: "fayte-pixel-hard", sans-serif;
+            font-weight: 100;
             color: var(--primary-text);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 0.2rem;
         }
 
+        /* Song & artist — argent-pixel-cf */
         .music-artist {
-            font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;
+            font-family: "argent-pixel-cf", serif;
             font-weight: 400;
-            font-style: normal;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: #ffff00;
         }
 
-        .music-controls {
-            display: flex;
-            gap: 0.8rem;
-            align-items: center;
-        }
+        .music-controls { display: flex; gap: 0.8rem; align-items: center; }
 
         .music-btn {
             background: var(--accent-1);
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            color: white;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: none; width: 35px; height: 35px;
+            border-radius: 50%; color: white; font-size: 0.8rem;
+            cursor: pointer; transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 12px rgba(118, 229, 252, 0.3);
         }
 
-        .music-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(118, 229, 252, 0.5);
-        }
+        .music-btn:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(118, 229, 252, 0.5); }
 
-        .volume-slider {
-            width: 100px;
-            height: 4px;
-            cursor: pointer;
-            accent-color: var(--accent-1);
-        }
-        
-        .volume-icon {
-            font-size: 1.2rem;
-            color: var(--primary-text);
-        }
+        .volume-slider { width: 100px; height: 4px; cursor: pointer; accent-color: var(--accent-1); }
+        .volume-icon { font-size: 1.2rem; color: var(--primary-text); }
 
-        .resume-container {
-            text-align: center;
-            padding: 2rem;
-        }
+        .resume-container { text-align: center; padding: 2rem; }
 
         .resume-preview {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            margin: 2rem 0;
-            min-height: 400px;
-            text-align: left;
+            background: white; padding: 2rem; border-radius: 12px;
+            border: 1px solid var(--border-color); margin: 2rem 0;
+            min-height: 400px; text-align: left;
         }
 
         .download-btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--accent-2);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 192, 203, 0.3);
+            display: inline-block; padding: 1rem 2rem;
+            background: var(--accent-2); color: white;
+            text-decoration: none; border-radius: 25px; font-weight: 600;
+            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 192, 203, 0.3);
         }
 
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 192, 203, 0.5);
-            background: var(--accent-1);
+        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 192, 203, 0.5); background: var(--accent-1); }
+
+        .contact-form { max-width: 500px; margin: 0 auto; }
+        .form-group { margin-bottom: 1.5rem; }
+
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--primary-text); }
+
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 0.8rem;
+            border: 2px solid var(--border-color); border-radius: 8px;
+            font-family: "argent-pixel-cf", serif; font-size: 1rem;
+            transition: all 0.3s ease; background: rgba(255, 255, 255, 0.7);
         }
 
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--primary-text);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            font-family: "argent-pixel-cf", serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.7);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-1);
-            background: white;
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--accent-1); background: white;
             box-shadow: 0 0 0 3px rgba(118, 229, 252, 0.1);
         }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
+        .contact-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
 
         .contact-link {
-            padding: 0.7rem 1.5rem;
-            background: var(--accent-3);
-            color: white;
-            text-decoration: none;
-            border-radius: 20px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(168, 216, 255, 0.3);
+            padding: 0.7rem 1.5rem; background: var(--accent-3); color: white;
+            text-decoration: none; border-radius: 20px; font-weight: 500;
+            transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(168, 216, 255, 0.3);
         }
 
-        .contact-link:hover {
-            transform: translateY(-2px);
-            background: var(--accent-1);
-            box-shadow: 0 6px 18px rgba(118, 229, 252, 0.4);
-        }
+        .contact-link:hover { transform: translateY(-2px); background: var(--accent-1); box-shadow: 0 6px 18px rgba(118, 229, 252, 0.4); }
 
-       footer {
-            text-align: center;
-            padding: 2rem;
+        footer {
+            text-align: center; padding: 2rem;
             color: var(--secondary-text);
-            
             font-family: "argent-pixel-cf", serif;
-            font-size: 0.85rem;
-            margin-bottom: 100px;
-            border-top: 0px solid var(--border-color);
+            font-size: 0.85rem; margin-bottom: 100px;
+            border-top: none;
         }
 
-       #about {
+        #about, #work, #resume, #contact {
             background-image: url('https://i.pinimg.com/originals/11/39/21/1139214a19f1e770185c810da860b2f4.gif');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        #work {
-            background-image: url('https://i.pinimg.com/originals/11/39/21/1139214a19f1e770185c810da860b2f4.gif');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        #resume {
-            background-image: url('https://i.pinimg.com/originals/11/39/21/1139214a19f1e770185c810da860b2f4.gif');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        #contact {
-            background-image: url('https://i.pinimg.com/originals/11/39/21/1139214a19f1e770185c810da860b2f4.gif');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        #home.active ~ nav {
-            display: none; !important;
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
 
         @media (max-width: 768px) {
@@ -817,17 +530,13 @@
             .music-controls { width: 100%; justify-content: center; }
             .volume-slider { width: 150px; }
             .home-content h1 { font-size: 2.5rem; }
-            .nav-buttons { gap: 1rem; }
-            .btn { min-width: 120px; padding: 0.8rem 1.5rem; }
+            .nav-buttons { width: 90vw; height: 220px; }
             .photo-row { flex-direction: column; align-items: center; }
         }
 
         @media (max-width: 480px) {
             nav ul { flex-direction: column; gap: 0.5rem; }
-            .recommendations-grid { grid-template-columns: 1fr; }
             .home-content h1 { font-size: 1.8rem; }
-            .nav-buttons { flex-direction: column; }
-            .btn { width: 100%; }
         }
     </style>
 </head>
@@ -836,14 +545,12 @@
     <div id="home" class="page active">
         <div class="home-content">
             <h1>Welcome to my portfolio ^u^ </h1>
-			
-			
             <div class="nav-buttons">
                 <button class="btn" onclick="showPage(event, 'about')"><span>About Me</span></button>
                 <button class="btn" onclick="showPage(event, 'work')"><span>My Work</span></button>
                 <button class="btn" onclick="showPage(event, 'resume')"><span>Resume</span></button>
                 <button class="btn" onclick="showPage(event, 'contact')"><span>Contact</span></button>
-				<img src="https://i.imgur.com/tkms2P2.png" alt="bookstopper" style="height: 150px; margin-bottom: 5rem; margin-left: 2rem; margin-right: 0; transform: translateY(5px) translateX(-50px);">
+                <img src="https://i.imgur.com/tkms2P2.png" alt="bookstopper" class="bookend">
             </div>
         </div>
     </div>
@@ -863,24 +570,20 @@
         <div class="content-wrapper">
             <div class="about-container">
                 <div class="profile-section">
-
-                    <!-- 3 photos: replace the side src values with your own images -->
                     <div class="photo-row">
                         <img src="https://via.placeholder.com/120x200" alt="Photo" class="profile-image-side">
                         <img src="https://i.imgur.com/U47xkLl.jpeg" alt="Profile" class="profile-image">
                         <img src="https://via.placeholder.com/120x200" alt="Photo" class="profile-image-side">
                     </div>
-
                     <div class="bio-text">
                         <p>Hi! I'm Lauren, an aspiring multimedia content creator. I grew up in Greenville, South Carolina with two older sisters and lots of animals.
-							I moved to Plano, Texas in 2020 where I attended John Paul II and participated on the Academic Decathlon team. After high school, 
-							I attended Tulane University's honors program, however I transferred to Baylor University in 2023 due to my <a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/diabetes/type-1-diabetes" target="_blank" style="color: #76e5fc;">type one diabetes</a> diagnosis. 
-							The first few years of college learning to manage this disease 24/7 were extremely challenging, and I am still far from perfect, but it has led me to meet so many wonderful people in the community and 
-							learn so much about myself and my strength. I still wish for a cure, but I am so grateful for the person it has led me to become. My hobbies include reading, drawing, and being outside whenever I can. I'm passionate about writing, film, 
-							and storytelling, which is why I chose Communication Specialist as my major. While I was able to focus primarily on film & digital media courses, I appreciated that the program also provided more practical communication and rhetoric courses. I graduate in May, and I'm so excited to see where God leads me.   </p>
+                        I moved to Plano, Texas in 2020 where I attended John Paul II and participated on the Academic Decathlon team. After high school, 
+                        I attended Tulane University's honors program, however I transferred to Baylor University in 2023 due to my <a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/diabetes/type-1-diabetes" target="_blank" style="color: #76e5fc;">type one diabetes</a> diagnosis. 
+                        The first few years of college learning to manage this disease 24/7 were extremely challenging, and I am still far from perfect, but it has led me to meet so many wonderful people in the community and 
+                        learn so much about myself and my strength. I still wish for a cure, but I am so grateful for the person it has led me to become. My hobbies include reading, drawing, and being outside whenever I can. I'm passionate about writing, film, 
+                        and storytelling, which is why I chose Communication Specialist as my major. While I was able to focus primarily on film & digital media courses, I appreciated that the program also provided more practical communication and rhetoric courses. I graduate in May, and I'm so excited to see where God leads me.</p>
                     </div>
 
-                    <!-- CURRENT RECS -->
                     <div style="margin-top: 2rem;">
                         <h3 class="recs-heading">Current Recs:</h3>
                         <ul class="recs-list">
@@ -897,12 +600,11 @@
                         </ul>
                     </div>
 
-                    <!-- ELLIPSES DIVIDER GIF — swap src for a different gif if you find one you like -->
+                    <!-- DIVIDER GIF — swap src for a different gif if you find one you like -->
                     <div class="recs-divider">
                         <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHp5NnJycHIzeGttNHJkcm5qemxtNzNoZ3pybWs3Z3BxenVlanN4biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/WoWm8YzFQJg28/giphy.gif" alt="divider" style="max-height: 50px; border-radius: 4px;">
                     </div>
 
-                    <!-- TIMELESS RECS -->
                     <div>
                         <h3 class="recs-heading">Timeless Recs:</h3>
                         <ul class="recs-list">
@@ -918,55 +620,25 @@
                             <li><a href="YOUR_LINK" target="_blank">Podcast</a><span class="rec-type">— podcast</span></li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 
-
     <div id="work" class="page">
         <h2 class="page-header">Work</h2>
         <div class="content-wrapper">
             <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openFullscreen(event)">
-                    <img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail">
-                    <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-                </div>
-                <div class="portfolio-item" onclick="openFullscreen(event)">
-                    <img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail">
-                    <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-                </div>
-                <div class="portfolio-item" onclick="openFullscreen(event)">
-                    <img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail">
-                    <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-                </div>
-                <div class="portfolio-item" onclick="openFullscreen(event)">
-                    <img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail">
-                    <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-                </div>
-                <div class="portfolio-item" onclick="openFullscreen(event)">
-                    <img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail">
-                    <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-                </div>
-                <div class="portfolio-item" onclick="openFullscreen(event)">
-                    <img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail">
-                    <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-                </div>
-				  <div class="portfolio-item" onclick="openFullscreen(event)">
-                    <img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail">
-                    <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-                </div>
-                <div class="portfolio-item" onclick="openFullscreen(event)">
-                    <img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail">
-                    <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-                </div>
-                <div class="portfolio-item" onclick="openFullscreen(event)">
-                    <img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail">
-                    <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-                </div>
+                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
             </div>
-           
         </div>
     </div>
 
@@ -977,14 +649,11 @@
                 <div class="resume-preview">
                     <h3>Lauren Dillon</h3>
                     <p style="color: var(--secondary-text); margin-bottom: 1.5rem;">Portfolio | Content Creation | Multimedia Design</p>
-                    
                     <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Experience</h4>
-                    <p style="color: var(--secondary-text); margin-bottom: 1rem;"> experience, education, skills, achievements etc.</p>
-                    
+                    <p style="color: var(--secondary-text); margin-bottom: 1rem;">experience, education, skills, achievements etc.</p>
                     <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Skills</h4>
-                    <p style="color: var(--secondary-text);">CMS, Javascript, Adobe Creative Suite, Microsoft Suite, Hootsuite </p>
+                    <p style="color: var(--secondary-text);">CMS, Javascript, Adobe Creative Suite, Microsoft Suite, Hootsuite</p>
                 </div>
-
                 <a href="#" class="download-btn" download>↓ Download Resume (PDF)</a>
             </div>
         </div>
@@ -995,32 +664,14 @@
         <div class="content-wrapper">
             <div class="contact-form">
                 <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-text);">Get in Touch</h3>
-                
                 <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn" style="width: 100%; margin-bottom: 2rem;"><span>Send Message</span></button>
+                    <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
+                    <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+                    <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" required></div>
+                    <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea></div>
+                    <button type="submit" class="btn" style="width:100%;height:auto;padding:1rem;margin-bottom:2rem;writing-mode:horizontal-tb;"><span style="writing-mode:horizontal-tb;">Send Message</span></button>
                 </form>
             </div>
-
             <div class="contact-links">
                 <a href="mailto:your.email@example.com" class="contact-link">Email</a>
                 <a href="https://twitter.com" target="_blank" class="contact-link">Twitter</a>
@@ -1031,15 +682,11 @@
     </div>
 
     <div class="now-playing">
-        <div class="cd-container">
-            <div class="spinning-cd"></div>
-        </div>
-
+        <div class="cd-container"><div class="spinning-cd"></div></div>
         <div class="music-info">
             <div class="music-title">Now Playing</div>
             <div class="music-artist">Your Song • Artist Name</div>
         </div>
-
         <div class="music-controls">
             <button class="music-btn" onclick="toggleMusic()">▶</button>
             <input type="range" min="0" max="100" value="70" class="volume-slider" id="volumeSlider">
@@ -1053,100 +700,53 @@
 
     <footer>
         <!-- TODO: Change footer font when you decide — currently argent-pixel-cf -->
-        <p>hope you enjoy your stay :3 </p>
+        <p>hope you enjoy your stay :3</p>
     </footer>
 
     <script>
+        const nav = document.querySelector('nav');
+
         function showPage(event, pageId) {
             event.preventDefault();
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             const selectedPage = document.getElementById(pageId);
-            if (selectedPage) {
-                selectedPage.classList.add('active');
-                window.scrollTo(0, 0);
-            }
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
+            if (selectedPage) { selectedPage.classList.add('active'); window.scrollTo(0, 0); }
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             const clickedLink = event.target.closest('.nav-link');
-            if (clickedLink) {
-                clickedLink.classList.add('active');
-            }
+            if (clickedLink) clickedLink.classList.add('active');
+            nav.style.display = pageId === 'home' ? 'none' : 'block';
         }
 
         function openFullscreen(event) {
             const item = event.currentTarget;
             const videoUrl = item.getAttribute('data-video');
             const imageUrl = item.querySelector('img').src;
-
             const overlay = document.createElement('div');
-            overlay.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.95);
-                z-index: 10000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                backdrop-filter: blur(5px);
-                animation: fadeIn 0.3s ease;
-            `;
-
+            overlay.style.cssText = `position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);z-index:10000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(5px);`;
             const content = document.createElement('div');
-            content.style.cssText = `
-                position: relative;
-                max-width: 90vw;
-                max-height: 90vh;
-            `;
-
+            content.style.cssText = `position:relative;max-width:90vw;max-height:90vh;`;
             const closeBtn = document.createElement('button');
             closeBtn.innerHTML = '✕';
-            closeBtn.style.cssText = `
-                position: absolute;
-                top: -40px;
-                right: 0;
-                background: rgba(255, 255, 255, 0.2);
-                border: 2px solid white;
-                color: white;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                font-size: 1.5rem;
-                cursor: pointer;
-                transition: all 0.3s;
-            `;
-            closeBtn.onmouseover = () => { closeBtn.style.background = 'rgba(255, 255, 255, 0.4)'; };
-            closeBtn.onmouseout = () => { closeBtn.style.background = 'rgba(255, 255, 255, 0.2)'; };
+            closeBtn.style.cssText = `position:absolute;top:-40px;right:0;background:rgba(255,255,255,0.2);border:2px solid white;color:white;width:40px;height:40px;border-radius:50%;font-size:1.5rem;cursor:pointer;`;
+            closeBtn.onmouseover = () => closeBtn.style.background = 'rgba(255,255,255,0.4)';
+            closeBtn.onmouseout = () => closeBtn.style.background = 'rgba(255,255,255,0.2)';
             closeBtn.onclick = () => overlay.remove();
-
             if (videoUrl) {
                 const video = document.createElement('video');
-                video.src = videoUrl;
-                video.controls = true;
-                video.autoplay = true;
-                video.style.cssText = 'max-width: 100%; max-height: 85vh; border-radius: 10px;';
+                video.src = videoUrl; video.controls = true; video.autoplay = true;
+                video.style.cssText = 'max-width:100%;max-height:85vh;border-radius:10px;';
                 content.appendChild(video);
             } else {
                 const img = document.createElement('img');
                 img.src = imageUrl;
-                img.style.cssText = 'max-width: 100%; max-height: 85vh; border-radius: 10px;';
+                img.style.cssText = 'max-width:100%;max-height:85vh;border-radius:10px;';
                 content.appendChild(img);
             }
-
             content.appendChild(closeBtn);
             overlay.appendChild(content);
             document.body.appendChild(overlay);
-
-            overlay.onclick = (e) => {
-                if (e.target === overlay) overlay.remove();
-            };
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') overlay.remove();
-            });
+            overlay.onclick = e => { if (e.target === overlay) overlay.remove(); };
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') overlay.remove(); });
         }
 
         const musicPlayer = document.getElementById('musicPlayer');
@@ -1155,32 +755,14 @@
         let isPlaying = false;
 
         function toggleMusic() {
-            if (isPlaying) {
-                musicPlayer.pause();
-                playBtn.innerHTML = '▶';
-                isPlaying = false;
-            } else {
-                musicPlayer.play();
-                playBtn.innerHTML = '⏸';
-                isPlaying = true;
-            }
+            if (isPlaying) { musicPlayer.pause(); playBtn.innerHTML = '▶'; isPlaying = false; }
+            else { musicPlayer.play(); playBtn.innerHTML = '⏸'; isPlaying = true; }
         }
 
-        volumeSlider.addEventListener('input', (e) => {
-            musicPlayer.volume = e.target.value / 100;
-        });
-        musicPlayer.addEventListener('ended', () => {
-            playBtn.innerHTML = '▶';
-            isPlaying = false;
-        });
-        musicPlayer.addEventListener('play', () => {
-            playBtn.innerHTML = '⏸';
-            isPlaying = true;
-        });
-        musicPlayer.addEventListener('pause', () => {
-            playBtn.innerHTML = '▶';
-            isPlaying = false;
-        });
+        volumeSlider.addEventListener('input', e => { musicPlayer.volume = e.target.value / 100; });
+        musicPlayer.addEventListener('ended', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
+        musicPlayer.addEventListener('play', () => { playBtn.innerHTML = '⏸'; isPlaying = true; });
+        musicPlayer.addEventListener('pause', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
     </script>
 </body>
 </html>
