@@ -514,7 +514,7 @@
             border-top: none;
         }
 
-        #about, #work, #resume, #contact {
+        #about, #work, #, #contact {
             background-image: url('https://i.pinimg.com/originals/11/39/21/1139214a19f1e770185c810da860b2f4.gif');
             background-size: cover; background-position: center; background-attachment: fixed;
         }
@@ -546,7 +546,7 @@
             <div class="nav-buttons">
                 <button class="btn" onclick="showPage(event, 'about')"><span>About Me</span></button>
                 <button class="btn" onclick="showPage(event, 'work')"><span>My Work</span></button>
-                <button class="btn" onclick="showPage(event, 'resume')"><span>Resume</span></button>
+                <button class="btn" onclick="showPage(event, '')"><span></span></button>
                 <button class="btn" onclick="showPage(event, 'contact')"><span>Contact</span></button>
                 <img src="https://i.imgur.com/tkms2P2.png" alt="bookstopper" style="height: 150px; margin-bottom: 5rem; margin-left: 2rem; margin-right: 0; transform: translateY(5px) translateX(-50px);">
             </div>
@@ -558,7 +558,7 @@
             <li><a href="#home" class="nav-link active" onclick="showPage(event, 'home')">Home</a></li>
             <li><a href="#about" class="nav-link" onclick="showPage(event, 'about')">About</a></li>
             <li><a href="#work" class="nav-link" onclick="showPage(event, 'work')">Work</a></li>
-            <li><a href="#resume" class="nav-link" onclick="showPage(event, 'resume')">Resume</a></li>
+            <li><a href="#" class="nav-link" onclick="showPage(event, '')"></a></li>
             <li><a href="#contact" class="nav-link" onclick="showPage(event, 'contact')">Contact</a></li>
         </ul>
     </nav>
@@ -640,22 +640,14 @@
         </div>
     </div>
 
-    <div id="resume" class="page">
-        <h2 class="page-header">Resume</h2>
-        <div class="content-wrapper">
-            <div class="resume-container">
-                <div class="resume-preview">
-                    <h3>Lauren Dillon</h3>
-                    <p style="color: var(--secondary-text); margin-bottom: 1.5rem;">Portfolio | Content Creation | Multimedia Design</p>
-                    <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Experience</h4>
-                    <p style="color: var(--secondary-text); margin-bottom: 1rem;">experience, education, skills, achievements etc.</p>
-                    <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Skills</h4>
-                    <p style="color: var(--secondary-text);">CMS, Javascript, Adobe Creative Suite, Microsoft Suite, Hootsuite</p>
-                </div>
-                <a href="#" class="download-btn" download>↓ Download Resume (PDF)</a>
-            </div>
-        </div>
-    </div>
+   <div class="resume-container">
+    <a href="resume.pdf" download="Lauren_Dillon_Resume.pdf" class="download-btn" style="margin-bottom: 1.5rem; display: inline-block;">↓ Download Resume (PDF)</a>
+    <iframe 
+        src="resume.pdf#toolbar=0"
+        title="Resume"
+        style="width: 100%; height: 80vh; border: none; border-radius: 8px; display: block;"
+    ></iframe>
+</div>
 
     <div id="contact" class="page">
         <h2 class="page-header">Contact</h2>
