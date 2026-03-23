@@ -37,7 +37,7 @@
             overflow-x: hidden;
         }
 
-        /* NAVIGATION */
+        
         nav {
             background: rgba(0, 0, 0, 0.15);
             border-bottom: 2px solid var(--border-color);
@@ -93,7 +93,7 @@
             animation: fadeIn 0.5s ease;
         }
 
-        /* HOME page active = flex not block */
+       
         #home.active {
             display: flex;
             align-items: center;
@@ -180,7 +180,7 @@
 
         .nav-buttons::after { display: none; }
 
-        /* BOOK BUTTONS */
+       
         .btn {
             padding: 0;
             margin-top: -2.8rem;
@@ -262,7 +262,7 @@
         .btn:nth-child(4):hover { transform: translateX(-16px) rotate(15deg) translateY(-5px); }
         .btn:nth-child(4) span { font-family: "argent-pixel-cf", serif; font-size: 0.7rem; }
 
-        /* OTHER PAGES */
+       
         .page-header {
             font-family: "fayte-pixel-hard", sans-serif;
             font-size: clamp(2rem, 6vw, 3.5rem);
@@ -298,7 +298,7 @@
         }
 
         .profile-image {
-            width: 300px; height: 500px;
+            width: 200px; height: 333.33px;
             border-radius: 0%;
             border: 1px solid var(--accent-1);
             object-fit: cover;
@@ -331,10 +331,10 @@
         }
 
         .recs-list { list-style: none; padding: 0; margin: 0; }
-        .recs-list li { margin-bottom: 0.45rem; }
+        .recs-list li { margin-bottom: 0.4rem; }
 
         .recs-list a {
-            color: var(--primary-text);
+            color: #ffffff;
             text-decoration: underline;
             font-size: 0.95rem;
             font-family: "argent-pixel-cf", serif;
@@ -344,7 +344,7 @@
         .recs-list a:hover { color: var(--accent-1); }
 
         .recs-list .rec-type {
-            opacity: 0.55;
+            opacity: 0.67;
             font-size: 0.8rem;
             margin-left: 0.4rem;
             font-family: "argent-pixel-cf", serif;
@@ -363,7 +363,7 @@
         .portfolio-item {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 10px;
             aspect-ratio: 1;
             cursor: pointer;
             background: rgba(118, 229, 252, 0.1);
@@ -617,7 +617,7 @@
         <h2 class="page-header">Work</h2>
         <div class="content-wrapper">
             <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+                <div class="Original Screenplay (Act I)" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="by me" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
                 <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
                 <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
                 <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
@@ -657,10 +657,9 @@
                 </form>
             </div>
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-link">Email</a>
-                <a href="https://twitter.com" target="_blank" class="contact-link">Twitter</a>
-                <a href="https://instagram.com" target="_blank" class="contact-link">Instagram</a>
-                <a href="https://linkedin.com" target="_blank" class="contact-link">LinkedIn</a>
+                <a href="mailto:ldillon03@gmail.com" class="contact-link">Email</a>
+                <a href="https://www.instagram.com/laur3n3v3lyn/?hl=en" target="_blank" class="contact-link">Instagram</a>
+                <a href="https://www.linkedin.com/in/lauren-dillon-b80a86271/?skipRedirect=true" target="_blank" class="contact-link">LinkedIn</a>
             </div>
         </div>
     </div>
@@ -669,7 +668,7 @@
         <div class="cd-container"><div class="spinning-cd"></div></div>
         <div class="music-info">
             <div class="music-title">Now Playing...</div>
-            <div class="music-artist">Meausring Ruins • Oneohtrix Point Never</div>
+            <div class="music-artist">Measuring Ruins • Oneohtrix Point Never</div>
         </div>
         <div class="music-controls">
             <button class="music-btn" onclick="toggleMusic()">▶</button>
@@ -683,7 +682,7 @@
     </audio>
 
     <footer>
-        <!-- TODO: Change footer font when you decide — currently argent-pixel-cf -->
+       
         <p>best viewed on desktop | hope you enjoy your stay :3</p>
     </footer>
 
