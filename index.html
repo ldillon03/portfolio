@@ -400,7 +400,23 @@
             box-shadow: 0 4px 15px rgba(118, 229, 252, 0.5);
         }
 
-        
+        .portfolio-item-label {
+            text-align: center;
+            font-family: "argent-pixel-cf", serif;
+            font-size: 0.85rem;
+            color: white;
+            padding: 4px;
+        }
+
+.portfolio-disclaimer {
+            font-size: 0.7rem;
+            color: #000000; /* replace with your hex code */
+            font-family: ''; /* replace with your font name */
+            margin-top: 6px;
+            padding: 0 4px;
+            line-height: 1.4;
+            text-align: center;
+        }
         .now-playing {
             position: fixed;
             bottom: 2rem; right: 2rem;
@@ -616,19 +632,29 @@
     <div id="work" class="page">
         <h2 class="page-header">Work</h2>
         <div class="content-wrapper">
-            <div class="portfolio-grid">
-                <div class="Original Screenplay (Act I)" onclick="openFullscreen(event)"><img src="static-interference-lauren-dillon.tiiny.site" alt="Static Interference: Orginal Screenplay (Act I)" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-                <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-            </div>
-        </div>
-    </div>
+           <div class="portfolio-grid">
+  <div class="portfolio-item" onclick="openPDFPreview('screenplay.pdf')">
+    <img src="https://via.placeholder.com/250" alt="Static Interference: Original Screenplay (Act I)" class="portfolio-thumbnail">
+    <div class="portfolio-item-label">Original Screenplay (Act I)</div>
+    <p class="portfolio-disclaimer">⚠️ This is an original work protected under copyright. Please do not reproduce or distribute without permission.</p>
+  </div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+</div>
+
+<!-- PDF Preview Modal -->
+<div id="pdf-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
+  <div style="position:relative; width:90%; height:90%;">
+    <button onclick="closePDFPreview()" style="position:absolute; top:-40px; right:0; background:none; border:none; color:white; font-size:28px; cursor:pointer;">✕</button>
+    <iframe id="pdf-frame" src="" width="100%" height="100%" style="border:none; border-radius:8px;"></iframe>
+  </div>
+</div>
 
   <div id="resume" class="page">
     <h2 class="page-header">Resume</h2>
@@ -747,6 +773,15 @@
         musicPlayer.addEventListener('ended', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
         musicPlayer.addEventListener('play', () => { playBtn.innerHTML = '⏸'; isPlaying = true; });
         musicPlayer.addEventListener('pause', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
+
+		function openPDFPreview(url) {
+  document.getElementById('pdf-frame').src = url;
+  document.getElementById('pdf-overlay').style.display = 'flex';
+}
+function closePDFPreview() {
+  document.getElementById('pdf-overlay').style.display = 'none';
+  document.getElementById('pdf-frame').src = '';
+}
     </script>
 </body>
 </html>
