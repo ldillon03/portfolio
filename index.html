@@ -639,7 +639,17 @@
     <p style="color:white; font-size:0.7rem; text-align:center; padding:1rem; font-family:'argent-pixel-cf', serif;">This screenplay was written before the release of Apple TV's <em>Pluribus</em>. All work is original and any resemblance to other media is purely coincidental.</p>
   </div>
 </div>
-  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://youtu.be/1_dDkzKcRRY" alt="Cat Dad" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+ <div class="portfolio-item" 
+     data-video="https://www.youtube.com/embed/1_dDkzKcRRY"
+     data-description="my video "
+     onclick="openFullscreen(this)">
+
+  <img src="https://i.imgur.com/2H5pf4l.png" alt="Thumbnail" class="portfolio-thumbnail">
+
+  <div class="portfolio-video-preview">
+    <div class="play-icon">▶</div>
+  </div>
+</div>
   <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
   <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
   <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
@@ -669,119 +679,111 @@
     </div>
 </div>
 
-    <div id="contact" class="page">
-        <h2 class="page-header">Contact</h2>
-        <div class="content-wrapper">
-            <div class="contact-form">
-                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-text);">Get in Touch</h3>
-                <form>
-                    <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
-                    <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
-                    <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" required></div>
-                    <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea></div>
-                    <button type="submit" class="btn" style="width:100%;height:auto;padding:1rem;margin-bottom:2rem;writing-mode:horizontal-tb;"><span style="writing-mode:horizontal-tb;">Send Message</span></button>
-                </form>
-            </div>
-            <div class="contact-links">
-                <a href="mailto:ldillon03@gmail.com" class="contact-link">Email</a>
-                <a href="https://www.instagram.com/laur3n3v3lyn/?hl=en" target="_blank" class="contact-link">Instagram</a>
-                <a href="https://www.linkedin.com/in/lauren-dillon-b80a86271/?skipRedirect=true" target="_blank" class="contact-link">LinkedIn</a>
-            </div>
+<div id="contact" class="page">
+    <h2 class="page-header">Contact</h2>
+    <div class="content-wrapper">
+        <div class="contact-form">
+            <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-text);">Get in Touch</h3>
+            <form>
+                <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
+                <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+                <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" required></div>
+                <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea></div>
+                <button type="submit" class="btn" style="width:100%;height:auto;padding:1rem;margin-bottom:2rem;writing-mode:horizontal-tb;"><span style="writing-mode:horizontal-tb;">Send Message</span></button>
+            </form>
+        </div>
+        <div class="contact-links">
+            <a href="mailto:ldillon03@gmail.com" class="contact-link">Email</a>
+            <a href="https://www.instagram.com/laur3n3v3lyn/?hl=en" target="_blank" class="contact-link">Instagram</a>
+            <a href="https://www.linkedin.com/in/lauren-dillon-b80a86271/?skipRedirect=true" target="_blank" class="contact-link">LinkedIn</a>
         </div>
     </div>
+</div>
 
-    <div class="now-playing">
-        <div class="cd-container"><div class="spinning-cd"></div></div>
-        <div class="music-info">
-            <div class="music-title">Now Playing...</div>
-            <div class="music-artist">Measuring Ruins • Oneohtrix Point Never</div>
-        </div>
-        <div class="music-controls">
-            <button class="music-btn" onclick="toggleMusic()">▶</button>
-            <input type="range" min="0" max="100" value="70" class="volume-slider" id="volumeSlider">
-            <span class="volume-icon">♪</span>
-        </div>
+<div class="now-playing">
+    <div class="cd-container"><div class="spinning-cd"></div></div>
+    <div class="music-info">
+        <div class="music-title">Now Playing...</div>
+        <div class="music-artist">Measuring Ruins • Oneohtrix Point Never</div>
     </div>
+    <div class="music-controls">
+        <button class="music-btn" onclick="toggleMusic()">▶</button>
+        <input type="range" min="0" max="100" value="70" class="volume-slider" id="volumeSlider">
+        <span class="volume-icon">♪</span>
+    </div>
+</div>
 
-    <audio id="musicPlayer">
-        <source src="https://audio.jukehost.co.uk/jlbM19ywE4nUu55AcPZ0lC1mLhk6OZ4I.mp3">
-    </audio>
+<audio id="musicPlayer">
+    <source src="https://audio.jukehost.co.uk/jlbM19ywE4nUu55AcPZ0lC1mLhk6OZ4I.mp3">
+</audio>
 
-    <footer>
-       
-        <p>best viewed on desktop | hope you enjoy your stay :3</p>
-    </footer>
+<footer>
+    <p>best viewed on desktop | hope you enjoy your stay :3</p>
+</footer>
 
-    <script>
-        function showPage(event, pageId) {
-            event.preventDefault();
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            const selectedPage = document.getElementById(pageId);
-            if (selectedPage) {
-                selectedPage.classList.add('active');
-                window.scrollTo(0, 0);
-            }
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            const clickedLink = event.target.closest('.nav-link');
-            if (clickedLink) clickedLink.classList.add('active');
-            document.querySelector('nav').style.display = pageId === 'home' ? 'none' : 'block';
-        }
+<!-- STEP 2: VIDEO MODAL (HTML) -->
+<div id="videoModal" class="video-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:10000;align-items:center;justify-content:center;">
+    <div class="video-content" style="position:relative;max-width:90vw;max-height:90vh;">
+        <span class="close-btn" onclick="closeFullscreen()" style="position:absolute;top:-40px;right:0;background:rgba(255,255,255,0.2);border:2px solid white;color:white;width:40px;height:40px;border-radius:50%;font-size:1.5rem;cursor:pointer;">✕</span>
+        <iframe id="modalVideo" src="" frameborder="0" allowfullscreen style="width:100%;height:85vh;border-radius:10px;"></iframe>
+        <p id="videoDescription" style="color:white;margin-top:15px;text-align:center;"></p>
+    </div>
+</div>
 
-        function openFullscreen(event) {
-            const item = event.currentTarget;
-            const videoUrl = item.getAttribute('data-video');
-            const imageUrl = item.querySelector('img').src;
-            const overlay = document.createElement('div');
-            overlay.style.cssText = `position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);z-index:10000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(5px);`;
-            const content = document.createElement('div');
-            content.style.cssText = `position:relative;max-width:90vw;max-height:90vh;`;
-            const closeBtn = document.createElement('button');
-            closeBtn.innerHTML = '✕';
-            closeBtn.style.cssText = `position:absolute;top:-40px;right:0;background:rgba(255,255,255,0.2);border:2px solid white;color:white;width:40px;height:40px;border-radius:50%;font-size:1.5rem;cursor:pointer;`;
-            closeBtn.onmouseover = () => closeBtn.style.background = 'rgba(255,255,255,0.4)';
-            closeBtn.onmouseout = () => closeBtn.style.background = 'rgba(255,255,255,0.2)';
-            closeBtn.onclick = () => overlay.remove();
-            if (videoUrl) {
-                const video = document.createElement('video');
-                video.src = videoUrl; video.controls = true; video.autoplay = true;
-                video.style.cssText = 'max-width:100%;max-height:85vh;border-radius:10px;';
-                content.appendChild(video);
-            } else {
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                img.style.cssText = 'max-width:100%;max-height:85vh;border-radius:10px;';
-                content.appendChild(img);
-            }
-            content.appendChild(closeBtn);
-            overlay.appendChild(content);
-            document.body.appendChild(overlay);
-            overlay.onclick = e => { if (e.target === overlay) overlay.remove(); };
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') overlay.remove(); });
-        }
+<script>
+    // --- PAGE NAVIGATION ---
+    function showPage(event, pageId) {
+        event.preventDefault();
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        const selectedPage = document.getElementById(pageId);
+        if (selectedPage) selectedPage.classList.add('active');
+        window.scrollTo(0,0);
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        const clickedLink = event.target.closest('.nav-link');
+        if (clickedLink) clickedLink.classList.add('active');
+        document.querySelector('nav').style.display = pageId === 'home' ? 'none' : 'block';
+    }
 
-        const musicPlayer = document.getElementById('musicPlayer');
-        const volumeSlider = document.getElementById('volumeSlider');
-        const playBtn = document.querySelector('.music-btn');
-        let isPlaying = false;
+    // --- VIDEO FUNCTIONS (STEP 3) ---
+    function openFullscreen(element) {
+        const videoSrc = element.getAttribute("data-video");
+        const description = element.getAttribute("data-description");
+        const modal = document.getElementById("videoModal");
+        document.getElementById("modalVideo").src = videoSrc + "?autoplay=1";
+        document.getElementById("videoDescription").innerText = description;
+        modal.style.display = "flex";
+    }
+    function closeFullscreen() {
+        const modal = document.getElementById("videoModal");
+        modal.style.display = "none";
+        document.getElementById("modalVideo").src = "";
+    }
 
-        function toggleMusic() {
-            if (isPlaying) { musicPlayer.pause(); playBtn.innerHTML = '▶'; isPlaying = false; }
-            else { musicPlayer.play(); playBtn.innerHTML = '⏸'; isPlaying = true; }
-        }
+    // --- PDF FUNCTIONS ---
+    function openPDFPreview(url) {
+        document.getElementById('pdf-frame').src = url;
+        document.getElementById('pdf-overlay').style.display = 'flex';
+    }
+    function closePDFPreview() {
+        document.getElementById('pdf-overlay').style.display = 'none';
+        document.getElementById('pdf-frame').src = '';
+    }
 
-        volumeSlider.addEventListener('input', e => { musicPlayer.volume = e.target.value / 100; });
-        musicPlayer.addEventListener('ended', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
-        musicPlayer.addEventListener('play', () => { playBtn.innerHTML = '⏸'; isPlaying = true; });
-        musicPlayer.addEventListener('pause', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
+    // --- MUSIC FUNCTIONS ---
+    const musicPlayer = document.getElementById('musicPlayer');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const playBtn = document.querySelector('.music-btn');
+    let isPlaying = false;
 
-		function openPDFPreview(url) {
-  document.getElementById('pdf-frame').src = url;
-  document.getElementById('pdf-overlay').style.display = 'flex';
-}
-function closePDFPreview() {
-  document.getElementById('pdf-overlay').style.display = 'none';
-  document.getElementById('pdf-frame').src = '';
-}
-    </script>
+    function toggleMusic() {
+        if (isPlaying) { musicPlayer.pause(); playBtn.innerHTML = '▶'; isPlaying = false; }
+        else { musicPlayer.play(); playBtn.innerHTML = '⏸'; isPlaying = true; }
+    }
+
+    volumeSlider.addEventListener('input', e => { musicPlayer.volume = e.target.value / 100; });
+    musicPlayer.addEventListener('ended', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
+    musicPlayer.addEventListener('play', () => { playBtn.innerHTML = '⏸'; isPlaying = true; });
+    musicPlayer.addEventListener('pause', () => { playBtn.innerHTML = '▶'; isPlaying = false; });
+</script>
 </body>
 </html>
