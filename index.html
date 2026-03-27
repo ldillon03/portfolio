@@ -650,13 +650,13 @@
     <div class="play-icon">▶</div>
   </div>
 </div>
-  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
-  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="Portfolio Item" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="ttt" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="ththr" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="fghnft" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="hrfhtf" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="ssss" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="ggg" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
+  <div class="portfolio-item" onclick="openFullscreen(event)"><img src="https://via.placeholder.com/250" alt="hhh" class="portfolio-thumbnail"><div class="portfolio-video-preview"><div class="play-icon">▶</div></div></div>
 </div>
 
 
@@ -726,7 +726,7 @@
     <div class="video-content" style="position:relative; max-width:90vw; max-height:90vh; width:90%;">
         <span class="close-btn" onclick="closeFullscreen()" style="position:absolute;top:-40px;right:0;background:rgba(255,255,255,0.2);border:2px solid white;color:white;width:40px;height:40px;border-radius:50%;font-size:1.5rem;cursor:pointer;">✕</span>
         
-        <!-- 16:9 aspect ratio wrapper -->
+        
         <div style="position:relative; width:100%; padding-top:56.25%;"> 
             <iframe id="modalVideo" src="" frameborder="0" allowfullscreen 
                     style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:10px;"></iframe>
@@ -737,7 +737,7 @@
 </div>
 
 <script>
-    // --- PAGE NAVIGATION ---
+    // page nav
     function showPage(event, pageId) {
         event.preventDefault();
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -765,7 +765,7 @@
         document.getElementById("modalVideo").src = "";
     }
 
-    // --- PDF FUNCTIONS ---
+    // 
     function openPDFPreview(url) {
         document.getElementById('pdf-frame').src = url;
         document.getElementById('pdf-overlay').style.display = 'flex';
@@ -775,7 +775,7 @@
         document.getElementById('pdf-frame').src = '';
     }
 
-    // --- MUSIC FUNCTIONS ---
+    // music
     const musicPlayer = document.getElementById('musicPlayer');
     const volumeSlider = document.getElementById('volumeSlider');
     const playBtn = document.querySelector('.music-btn');
