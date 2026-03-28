@@ -410,8 +410,8 @@
 
 .portfolio-disclaimer {
             font-size: 0.7rem;
-            color: #000000; /* replace with your hex code */
-            font-family: ''; /* replace with your font name */
+            color: #000000; 
+            font-family: ''; 
             margin-top: 6px;
             padding: 0 4px;
             line-height: 1.4;
@@ -633,7 +633,13 @@
         <h2 class="page-header">Work</h2>
         <div class="content-wrapper">
            <div class="portfolio-grid">
- <div class="portfolio-item"
+ <div class="portfolio-item" onclick="openPDFPreview('screenplay.pdf')">
+  <img src="https://i.imgur.com/TOysQvF.png" alt="Static Interference: Original Screenplay (Act I)" class="portfolio-thumbnail">
+  <div class="portfolio-video-preview">
+    <p style="color:white; font-size:0.7rem; text-align:center; padding:1rem; font-family:'argent-pixel-cf', serif;">This screenplay was written before the release of Apple TV's <em>Pluribus</em>. All work is original and any resemblance to other media is purely coincidental.</p>
+  </div>
+</div>
+<div class="portfolio-item"
      data-description="This screenplay was written before the release of Apple TV's Pluribus. All work is original and any resemblance to other media is purely coincidental."
      onclick="openPDFPreview('screenplay.pdf')">
   <img src="https://i.imgur.com/TOysQvF.png" alt="Static Interference: Original Screenplay (Act I)" class="portfolio-thumbnail">
@@ -641,6 +647,7 @@
     <p style="color:white; font-size:0.7rem; text-align:center; padding:1rem; font-family:'argent-pixel-cf', serif;">This screenplay was written before the release of Apple TV's <em>Pluribus</em>. All work is original and any resemblance to other media is purely coincidental.</p>
   </div>
 </div>
+
 <div class="portfolio-item"
      data-video="https://www.youtube.com/embed/1_dDkzKcRRY"
      data-description="Silent film assignment for my Production Methods II class. Feauturing my dad, John, and my cat, Nezzie. Song rights to Radiohead."
@@ -650,40 +657,55 @@
     <div class="play-icon">▶</div>
   </div>
 </div>
+
 <div class="portfolio-item"
-     data-image="https://i.imgur.com/18DydUl.png"
+     data-video="YOUR_VIDEO_LINK_HERE"
      data-description="Description here"
      onclick="openFullscreen(this)">
-  <img src="https://i.imgur.com/18DydUl.png" alt="Project 1" class="portfolio-thumbnail">
-  <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-</div>
-<div class="portfolio-item"
-     data-image="https://i.imgur.com/0pg07eB.jpeg"
-     data-description="Description here"
-     onclick="openFullscreen(this)">
-  <img src="https://i.imgur.com/0pg07eB.jpeg" alt="Project 2" class="portfolio-thumbnail">
-  <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
-</div>
-<div class="portfolio-item"
-     data-video="https://i.imgur.com/v5q2L06.mp4"
-     data-description="Description here"
-     onclick="openFullscreen(this)">
-  <video src="https://i.imgur.com/v5q2L06.mp4" class="portfolio-thumbnail" muted playsinline></video>
-  <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
+  <img src="YOUR_THUMBNAIL_LINK_HERE" alt="Title here" class="portfolio-thumbnail">
+  <div class="portfolio-video-preview">
+    <div class="play-icon">▶</div>
+  </div>
 </div>
 
 <div class="portfolio-item"
+     data-video="YOUR_VIDEO_LINK_HERE"
      data-description="Description here"
-     onclick="lscreen(this)">
-  <img src="https://i.imgur.com/gGv6H2f.png" alt="Project 4" class="portfolio-thumbnail">
-  <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
+     onclick="openFullscreen(this)">
+  <img src="YOUR_THUMBNAIL_LINK_HERE" alt="Title here" class="portfolio-thumbnail">
+  <div class="portfolio-video-preview">
+    <div class="play-icon">▶</div>
+  </div>
 </div>
 
 <div class="portfolio-item"
+     data-video="YOUR_VIDEO_LINK_HERE"
      data-description="Description here"
-     onclick="lscreen(this)">
-  <img src="https://via.placeholder.com/250" alt="placeholder" class="portfolio-thumbnail">
-  <div class="portfolio-video-preview"><div class="play-icon">▶</div></div>
+     onclick="openFullscreen(this)">
+  <img src="YOUR_THUMBNAIL_LINK_HERE" alt="Title here" class="portfolio-thumbnail">
+  <div class="portfolio-video-preview">
+    <div class="play-icon">▶</div>
+  </div>
+</div>
+
+<div class="portfolio-item"
+     data-video="YOUR_VIDEO_LINK_HERE"
+     data-description="Description here"
+     onclick="openFullscreen(this)">
+  <img src="YOUR_THUMBNAIL_LINK_HERE" alt="Title here" class="portfolio-thumbnail">
+  <div class="portfolio-video-preview">
+    <div class="play-icon">▶</div>
+  </div>
+</div>
+
+<div class="portfolio-item"
+     data-video="YOUR_VIDEO_LINK_HERE"
+     data-description="Description here"
+     onclick="openFullscreen(this)">
+  <img src="YOUR_THUMBNAIL_LINK_HERE" alt="Title here" class="portfolio-thumbnail">
+  <div class="portfolio-video-preview">
+    <div class="play-icon">▶</div>
+  </div>
 </div>
 
 <div id="pdf-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
@@ -777,7 +799,7 @@
     }
 
     // --- VIDEO FUNCTIONS (STEP 3) ---
-    function lscreen(element) {
+    function openFullscreen(element) {
         const videoSrc = element.getAttribute("data-video");
         const description = element.getAttribute("data-description");
         const modal = document.getElementById("videoModal");
