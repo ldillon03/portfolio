@@ -674,14 +674,14 @@
     btnRow.style.cssText = 'display:flex;gap:1rem;';
 
     const prev = document.createElement('button');
-    prev.textContent = '← Prev';
+    prev.textContent = '←';
     const next = document.createElement('button');
-    next.textContent = 'Next →';
+    next.textContent = '→';
     const close = document.createElement('button');
-    close.textContent = '✕ Close';
+    close.textContent = '✕';
 
     [prev, next, close].forEach(btn => {
-        btn.style.cssText = 'padding:0.5rem 1.2rem;cursor:pointer;background:#fff;border:none;font-family:sans-serif;';
+        btn.style.cssText = 'padding:0.5rem 1.2rem;cursor:pointer;background:#ffffff;border:none;font-family: "argent-pixel-cf", serif;';
     });
 
     prev.onclick = () => { current = (current - 1 + images.length) % images.length; img.src = images[current]; counter.textContent = `${current + 1} / ${images.length}`; };
